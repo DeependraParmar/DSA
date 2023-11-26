@@ -2,9 +2,14 @@
 using namespace std;
 
 int main(){
+    int n;
+    cout << "Enter the value till to print numbers: ";
+    cin >> n;
+    cout << endl;
+
     // using for loop 
     cout << "Printing number using for loop" << endl;
-    for(int i=1; i<=10; i++){
+    for(int i=1; i<=n; i++){
         cout << i << " ";
     }
     cout << endl << endl;
@@ -12,7 +17,7 @@ int main(){
     // using while loop 
     cout << "Printing number using while loop" << endl;
     int j = 1;
-    while(j<=10){
+    while(j<=n){
         cout << j++ << " ";
     }
     cout << endl << endl;
@@ -22,7 +27,7 @@ int main(){
     int k = 1;
     do{
         cout << k++ << " ";
-    }while(k<=10);
+    }while(k<=n);
     cout << endl << endl;
 
     return 0;
