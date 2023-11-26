@@ -20,5 +20,15 @@ int main(){
     cout << "The value of c is " << c << endl;
     cout << "The value of d is " << d << endl;
 
+
+
+    // Quiz: If we try to typecast an integer into a character with the size greater than that of the character's range, then what will be the output 
+    int integer = 193902;
+    char character = integer;
+
+    cout << "Character contains: " << character << endl;
+
+    // Ans: The output will be the character corresponding to the ASCII value of the last 8 binary bits of the binary of the integer of the 32 bits. For example, if the integer is 193902, then the binary of the integer is 101111011000101110, so the last 8 bits are 000101110, which is 46 in decimal and the character corresponding to 46 in ASCII is '.' (dot). So, the output will be '.' (dot). Sometimes, you can get warning doing this and sometimes not. It depends on the compiler. But, it is not recommended to do this. It is better to use explicit type casting in this case.
+
     return 0;
 }
