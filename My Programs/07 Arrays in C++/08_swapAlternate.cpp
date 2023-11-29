@@ -18,22 +18,9 @@ void printArray(int arr[], int n)
     }
 }
 
-void reverseArray(int arr[], int size)
-{
-    int start = 0;
-    int end = size - 1;
-
-    while (start <= end)
-    {
-        // write code manually or
-        // int temp = arr[start];
-        // arr[start] = arr[end];
-        // arr[end] = temp;
-
-        // use in-built function
-        swap(arr[start], arr[end]);
-        start++;
-        end--;
+void swapAlternate(int arr[], int n){
+    for(int i=0; i<n; i+=2){
+        swap(arr[i],arr[i+1]);
     }
 }
 int main()
@@ -46,12 +33,12 @@ int main()
 
     inputArray(arr, size);
 
-    cout << "Before Reversing: ";
+    cout << "Before Alternate Swapping: ";
     printArray(arr, size);
-    reverseArray(arr, size);
+    swapAlternate(arr, size);
     cout << endl;
 
-    cout << "After Reversing: ";
+    cout << "After Alternate Swapping: ";
     printArray(arr, size);
 
     return 0;
