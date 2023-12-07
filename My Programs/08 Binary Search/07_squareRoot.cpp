@@ -43,7 +43,6 @@ int main(){
     cout << "Enter the precision of square root: ";
     cin >> precision;
 
-
     int floorValue = squareRoot(n);
     cout << "Square root of " << n << " is: " << preciseSqrt(n,precision,floorValue);
     
