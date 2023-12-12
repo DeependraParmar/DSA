@@ -6,6 +6,8 @@ int main(){
     vector<int> arr; // normal vector
     vector<int> sizedVector(10,1); // vector of size 10, initialised with 1.
 
+    vector<int> copy(sizedVector); // creating a copy of a.
+
     cout << "Capacity of vector arr: " << arr.capacity() << endl;
 
     // Pushing an element in the array 
