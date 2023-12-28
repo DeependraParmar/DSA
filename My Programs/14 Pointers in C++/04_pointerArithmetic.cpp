@@ -9,5 +9,6 @@ int main(){
     ptr = ptr + 1;
     cout << "ptr after: " << ptr << endl;
 
+
     return 0;
 }
