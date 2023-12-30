@@ -11,6 +11,6 @@ int main(){
     cout << "size of i is: " << sizeof(i) << endl;
 
 
-    free(i);
+    delete i;
     return 0;
 }
