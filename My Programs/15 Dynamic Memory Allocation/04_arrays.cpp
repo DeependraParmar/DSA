@@ -23,7 +23,7 @@ int main(){
     int ans = getSum(arr,n);
     cout << "Sum of all elements of array is: " << ans << endl;
 
-    free(arr);
-    
+    delete arr;
+
     return 0;
 }
