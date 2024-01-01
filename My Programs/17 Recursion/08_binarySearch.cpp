@@ -7,24 +7,23 @@ void inputArray(int *arr, int n){
         cin >> arr[i];
     }
 }
-bool binarySearch(int *arr, int start, int end, int target){
+int binarySearch(int *arr, int start, int end, int target){
     int mid = start + (end-start)/2;
     bool ans = false;
 
     if(start > end){
-        return false;
+        return -1;
     }
     if(arr[mid] == target){
-        return true;
+        return mid;
     }
     else if(arr[mid] < target){
-        ans = binarySearch(arr, mid+1 , end, target);
+        return binarySearch(arr, mid+1 , end, target);
     }
     else{
-        ans = binarySearch(arr, start, mid-1, target);
+        return binarySearch(arr, start, mid-1, target);
     }
 
-    return ans;
 }
 int main(){
     int n;
@@ -38,11 +37,13 @@ int main(){
     cout << "Enter the target to search: ";
     cin >> target;
 
-    if(binarySearch(arr,0,n-1,target)){
-        cout << "Element " << target << " found" << endl;
+    int ans = binarySearch(arr,0,n-1,target);
+
+    if(ans == -1){
+        cout << "Element " << target << " not found" << endl;
     }
     else{
-        cout << "Element " << target << " not found" << endl;
+        cout << "Element " << target << " found at index: " << ans << endl;
     }
     return 0;
 }
