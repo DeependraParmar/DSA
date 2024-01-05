@@ -6,6 +6,15 @@ class Hero{
     public:
         char level;
 
+    // Parameterized Custom Constructor
+    Hero(int health, char level){
+        this->health = health;
+        this->level = level;
+
+        cout << "Health is: " << this->health << endl;
+        cout << "Level is: " << this->level << endl;
+    }
+
     void setHealth(int h){
         if(h>=0 && h<=100){
             this->health = h;
@@ -21,25 +30,25 @@ class Hero{
 
 int main(){
     // static object instantiation
-    Hero Deependra;
+    Hero Deependra(100,'A');
 
     // dynamic object instantiation 
-    Hero *Sohan = new Hero;
+    // Hero *Sohan = new Hero;
 
-    Deependra.setHealth(98);
-    Deependra.level = 'A';
+    // Deependra.setHealth(98);
+    // Deependra.level = 'A';
 
-    Sohan -> setHealth(80);
-    Sohan -> level = 'B';
+    // Sohan -> setHealth(80);
+    // Sohan -> level = 'B';
 
-    // cout << "Size of Deependra Object is: " << sizeof(Deependra) << endl;
+    // // cout << "Size of Deependra Object is: " << sizeof(Deependra) << endl;
 
-    cout << "Level is: " << Deependra.level << endl;
-    Deependra.getHealth();
+    // cout << "Level is: " << Deependra.level << endl;
+    // Deependra.getHealth();
 
-    cout << endl << "Level is: " << Sohan->level << endl;
-    Sohan->getHealth();
+    // cout << endl << "Level is: " << Sohan->level << endl;
+    // Sohan->getHealth();
 
-    delete Sohan;
+    // delete Sohan;
     return 0;
 }
