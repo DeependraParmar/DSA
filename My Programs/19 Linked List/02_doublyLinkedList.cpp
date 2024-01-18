@@ -35,6 +35,35 @@ void insertAtTail(int data){
     n++;
     return;
 }
+void insertAtPosition(int data, int pos){
+    if(pos<=0 || pos>n+1){
+        cout << "Invalid Position for Insertion" << endl;
+        return;
+    }
+    else if(pos==1){
+        insertAtHead(data);
+    }
+    else if(pos==n+1){
+        insertAtTail(data);
+    }
+    else{
+        newn = new Node(data);
+        temp = head;
+        int i=1;
+
+        while(i<pos-1){
+            temp = temp->next;
+            i++;
+        }
+
+        newn->next = temp->next;
+        temp->next->prev = newn;
+        temp->next = newn;
+        newn->prev = temp;
+        n++;
+        return;
+    }
+}
 void print(){
     temp = head;
     while(temp != NULL){
@@ -53,8 +82,14 @@ int main(){
         n++;
     }
 
-    insertAtHead(10);
-    insertAtTail(8); 
+    insertAtHead(10); // inserting node at head
+    insertAtTail(8);  // inserting node at tail
+    insertAtPosition(3,2); // inserting at particular position
+    insertAtPosition(5,1); // inserting node at first position
+    insertAtPosition(99,6); // inserting node at last position
+    // insertAtPosition(19,99); // invalid position for insertion case
+
+    cout << endl << endl;
     print();
     cout << "Total Nodes in LL are: " << n << endl;
     return 0;
