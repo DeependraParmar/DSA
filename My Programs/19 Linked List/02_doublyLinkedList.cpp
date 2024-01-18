@@ -13,6 +13,14 @@ class Node{
     }
 };
 
+void insertAtHead(Node* &head, int data, int &n){
+    Node* newn = new Node(data);
+    newn->next = head;
+    head->prev = newn;
+    head = newn;
+    n++;
+    return;
+}
 void printLinkedList(Node* head){
     Node* temp = head;
     while(temp != NULL){
@@ -27,6 +35,7 @@ int main(){
     Node* tail = node1;
     int n = 1;
 
+    insertAtHead(head, 10, n);
     printLinkedList(head);
     cout << "Total Nodes in LL are: " << n << endl;
     return 0;
