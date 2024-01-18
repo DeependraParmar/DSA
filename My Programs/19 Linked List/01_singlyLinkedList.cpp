@@ -10,6 +10,15 @@ class Node{
         this->data = data;
         this->next = NULL;
     }
+    ~Node(){
+        int value = this->data;
+
+        if(this->next != NULL){
+            delete next;
+            this->next = NULL;
+        }
+        cout << "Memory Freed" << endl;
+    }
 };
 
 void insertAtHead(Node* &head, int data, int &n){
@@ -55,6 +64,51 @@ void insertAtPosition(Node* &head,Node* &tail, int data,int pos, int &n){
         return;
     }
 }
+
+void deleteNode(Node* &head,Node* &tail, int pos, int &n){
+    if(pos<=0 || pos>n){
+        cout << "Invalid Position input for Deletion" << endl;
+    }
+    else if(pos == 1){
+        Node* temp = head;
+        head = head->next;
+        n--;
+
+        temp->next = NULL;
+        delete temp;
+        return;
+    }
+    else if(pos == n){
+        Node* temp = head;
+        Node* discard = NULL;
+        
+        while(temp->next->next != NULL){
+            temp = temp->next;
+        }
+        discard = temp->next;
+        temp->next = NULL;
+        tail = temp;
+        discard->next = NULL;
+        delete discard;
+        n--;
+        return;
+    }
+    else{
+        Node* temp = head;
+        Node* discard = NULL;
+        int i=1;
+
+        while(i<pos-1){
+            temp = temp->next;
+            i++;
+        }
+        discard = temp->next;
+        temp->next = discard->next;
+        n--;
+        discard->next = NULL;
+        delete discard;
+    }
+}
 void printLinkedList(Node* &head){
     Node* temp = head;
     while(temp != NULL){
@@ -80,7 +134,13 @@ int main(){
 
 
     cout << endl;
-    cout << "Total nodes are: " << n << endl;
+    cout << "Total nodes are: " << n << endl << endl;
+
+    deleteNode(head,tail,1,n);
+    deleteNode(head,tail,6,n);
+    deleteNode(head,tail,2,n);
+    printLinkedList(head);
+    cout << endl << "Total nodes are: " << n << endl;
 
     return 0;
 }
