@@ -17,7 +17,7 @@ class Node{
             delete next;
             this->next = NULL;
         }
-        cout << "Memory Freed" << endl;
+        cout << "Memory Freed for "<< this->data << endl;
     }
 };
 
@@ -131,7 +131,8 @@ int main(){
     insertAtPosition(head, tail, 100, 6, n);
     insertAtPosition(head, tail, 8, 3, n);
     printLinkedList(head);
-
+    cout << endl << "Head has: " << head->data << endl;
+    cout << "Tail has: " << tail->data << endl;
 
     cout << endl;
     cout << "Total nodes are: " << n << endl << endl;
@@ -141,6 +142,9 @@ int main(){
     deleteNode(head,tail,2,n);
     printLinkedList(head);
     cout << endl << "Total nodes are: " << n << endl;
+
+    cout << endl <<"Head has: " << head->data << endl;
+    cout<<"Tail has: " << tail->data << endl;
 
     return 0;
 }
