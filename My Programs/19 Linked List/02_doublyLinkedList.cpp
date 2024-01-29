@@ -138,7 +138,7 @@ int main(){
     cout << "Total Nodes in LL are: " << n << endl;
 
     cout << endl << endl;
-    deleteNode(1); // deleting the first node
+    deleteNode(1); // deleting the first node 
     deleteNode(5); // deleting the last node
     deleteNode(3); // deleting the node at position 3
     print();
