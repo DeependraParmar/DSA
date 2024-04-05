@@ -12,7 +12,6 @@ public:
             prev = current;
             current = next;
         }
-
         return prev;
     }
 };
