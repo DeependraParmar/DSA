@@ -8,7 +8,7 @@ Node* floydCycleDetection(Node* head){
 
     while(slow != NULL && fast != NULL){
         fast = fast -> next;
-        if(fast -> next != NULL){
+        if(fast != NULL){
             fast = fast -> next;
         }
 
