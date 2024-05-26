@@ -106,6 +106,15 @@ void preorder(Node* root){
     preorder(root->right);
 }
 
+void postorder(Node* root){
+    if(root == NULL)
+        return;
+    
+    postorder(root -> left);
+    postorder(root -> right);
+    cout << root -> data << " ";
+}
+
 int main(){
     Node* root = NULL;
     root = buildTree(root); //  1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
@@ -121,6 +130,9 @@ int main(){
     
     cout << endl << endl << "Preorder traversal is: " << endl;
     preorder(root);
+    
+    cout << endl << endl << "Postorder traversal is: " << endl;
+    postorder(root);
 
     return 0;
 }
