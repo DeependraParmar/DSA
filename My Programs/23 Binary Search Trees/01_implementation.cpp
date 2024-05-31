@@ -73,7 +73,14 @@ void inOrder(Node* root){
     cout << root -> data << " ";
     inOrder(root -> right);
 }
-
+void preOrder(Node* root){
+    if(root == NULL)
+        return;
+    
+    cout << root -> data << " ";
+    preOrder(root -> left);
+    preOrder(root -> right);
+}
 int main(){
     Node* root = NULL;
     takeInput(&root); // Pass the address of the root node
@@ -83,5 +90,8 @@ int main(){
 
     cout << endl << "Inorder Traversal of BST is: ";
     inOrder(root);
+    
+    cout << endl << "PreOrder Traversal of BST is: ";
+    preOrder(root);
     return 0;
 }
