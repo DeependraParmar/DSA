@@ -65,6 +65,14 @@ void takeInput(Node** root){ // Change the parameter to a double pointer
         cin >> data;
     }
 }
+void inOrder(Node* root){
+    if(root == NULL)
+        return;
+    
+    inOrder(root -> left);
+    cout << root -> data << " ";
+    inOrder(root -> right);
+}
 
 int main(){
     Node* root = NULL;
@@ -73,5 +81,7 @@ int main(){
     cout << "Level Order Traversal of BST: " << endl;
     levelOrderTraversal(root);
 
+    cout << endl << "Inorder Traversal of BST is: ";
+    inOrder(root);
     return 0;
 }
