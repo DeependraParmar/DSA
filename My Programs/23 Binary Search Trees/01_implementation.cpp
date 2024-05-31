@@ -73,6 +73,7 @@ void inOrder(Node* root){
     cout << root -> data << " ";
     inOrder(root -> right);
 }
+
 void preOrder(Node* root){
     if(root == NULL)
         return;
@@ -80,6 +81,15 @@ void preOrder(Node* root){
     cout << root -> data << " ";
     preOrder(root -> left);
     preOrder(root -> right);
+}
+
+void postOrder(Node* root){
+    if(root == NULL)
+        return;
+    
+    postOrder(root -> left);
+    postOrder(root -> right);
+    cout << root -> data << " ";
 }
 int main(){
     Node* root = NULL;
@@ -93,5 +103,9 @@ int main(){
     
     cout << endl << "PreOrder Traversal of BST is: ";
     preOrder(root);
+    
+    cout << endl << "PostOrder Traversal of BST is: ";
+    postOrder(root);
+    
     return 0;
 }
