@@ -101,6 +101,15 @@ Node* min(Node* root){
 
     return temp;
 }
+Node* max(Node* root){
+    Node* temp = root;
+
+    while(temp -> right != NULL){
+        temp = temp -> right;
+    }
+
+    return temp;
+}
 int main(){
     Node* root = NULL;
     takeInput(&root); // Pass the address of the root node
@@ -118,6 +127,7 @@ int main(){
     postOrder(root);
 
     cout << endl << "Node with min. value is: " << min(root)->data << endl;
+    cout << "Node with max. value is: " << max(root)->data << endl;
     
     return 0;
 }
