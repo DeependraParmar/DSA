@@ -91,6 +91,16 @@ void postOrder(Node* root){
     postOrder(root -> right);
     cout << root -> data << " ";
 }
+
+Node* min(Node* root){
+    Node* temp = root;
+
+    while(temp -> left != NULL){
+        temp = temp -> left;
+    }
+
+    return temp;
+}
 int main(){
     Node* root = NULL;
     takeInput(&root); // Pass the address of the root node
@@ -106,6 +116,8 @@ int main(){
     
     cout << endl << "PostOrder Traversal of BST is: ";
     postOrder(root);
+
+    cout << endl << "Node with min. value is: " << min(root)->data << endl;
     
     return 0;
 }
