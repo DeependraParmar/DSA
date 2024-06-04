@@ -160,6 +160,12 @@ int main(){
     cout << "Level Order Traversal of BST: " << endl;
     levelOrderTraversal(root);
 
+    cout << endl << "Deletion here: " << endl;
+    root = deleteFromBST(root, 10);
+
+    cout << endl << "Level Order Traversal after deletion is: " << endl;
+    levelOrderTraversal(root);
+
     cout << endl << "Inorder Traversal of BST is: ";
     inOrder(root);
     
