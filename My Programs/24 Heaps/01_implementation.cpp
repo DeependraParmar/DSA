@@ -28,6 +28,35 @@ class Heap{
             }
         }
 
+        void deleteFromHeap(){
+            if(size == 0){
+                cout << endl << "Nothing to delete" << endl;
+                return;
+            } 
+
+            arr[1] = arr[size]; // step 01: put last node to first;
+            size--; // step 02: removing last node
+
+            // step 03: take root to its correct position
+            int i=1;
+            while(i < size){
+                int left = 2*i;
+                int right = (2*i) + 1;
+
+                if(left < size && arr[i] < arr[left]){
+                    swap(arr[i], arr[left]);
+                    i = left;
+                }
+
+                else if(right < size && arr[i] < arr[right]){
+                    swap(arr[i], arr[right]);
+                    i = right;
+                }
+                else
+                    return;
+            }
+        }
+
         void print(){
             cout << endl << "Heap looks like: ";
             for(int i=1; i<=size; i++){
@@ -45,5 +74,10 @@ int main(){
     h.insert(60);
 
     h.print();
+
+    h.deleteFromHeap();
+    cout << endl << "After deleting, heap looks like:";
+    h.print();
+
     return 0;
 }
