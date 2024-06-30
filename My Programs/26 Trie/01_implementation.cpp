@@ -48,9 +48,35 @@ class Trie{
     void insertWord(string word){
         insertUtil(root, word);
     }
+
+    bool searchUtil(TrieNode* root, string word){
+        if(word.length() == 0){
+            return root -> isTerminal;
+        }
+
+        int index = word[0] - 'A';
+        TrieNode* child;
+
+        if(root -> children[index] != NULL){
+            child = root -> children[index];
+        }
+        else
+            return false;
+        
+        return searchUtil(child, word.substr(1));
+    }
+    bool searchWord(string word){
+        return searchUtil(root, word);
+    }
 };
 int main(){
     Trie *t  = new Trie();
+    t->insertWord("ABSENT");
+    t->insertWord("TIMER");
+    t->insertWord("CUPBOARD");
     t->insertWord("HELLO");
+
+    cout << "Present?: " << t->searchWord("HELL") << endl;
+    cout << "Present?: " << t->searchWord("HELLO") << endl;
     return 0;
 }
