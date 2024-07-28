@@ -62,7 +62,7 @@ int main(){
     vector<bool> visited(nodes, false);
 
     cout << endl << "DFS Traversal is: ";
-    g.dfs(visited, 0);
+    g.dfs(visited, 0); 
 
     return 0;
 }
