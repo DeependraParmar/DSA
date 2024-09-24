@@ -1,18 +1,17 @@
 #include <iostream>
 using namespace std;
 
-int sumTillN(int n, int sum){
+int sumTillN(int n){
     if(n < 1)
-        return sum;
+        return 0;
     
-    sum += n;
-    sumTillN(n-1, sum);
+    return n + sumTillN(n-1);
 }
 int main(){
     int n;
     cout << "Enter the value of n: ";
     cin >> n;
 
-    cout << "Sum of first " << n << " natural numbers is: " << sumTillN(n, 0) << endl;   
+    cout << "Sum of first " << n << " natural numbers is: " << sumTillN(n) << endl;   
     return 0;
 }
