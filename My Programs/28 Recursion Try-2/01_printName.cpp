@@ -1,14 +1,25 @@
 #include <iostream>
 using namespace std;
 
-void printName(int n){
+void printNameByHeadResursion(int n){
     if(n==0)
         return;
     
     cout << n << ": Deependra Parmar" << endl;
-    printName(n-1);
+    printNameByHeadResursion(n-1);
+}
+void printNameByTailResursion(int n){
+    if(n==0)
+        return;
+    
+    printNameByTailResursion(n-1);
+    cout << n << ": Deependra Parmar" << endl;
 }
 int main(){
-    printName(5);
+    printNameByHeadResursion(5);
+
+    cout << endl << endl;
+
+    printNameByTailResursion(5);
     return 0;
 }
