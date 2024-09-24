@@ -7,7 +7,7 @@ void printArray(int arr[], int n){
         cout << arr[i] << " ";
 }
 void reverse(int start, int end, int arr[]){
-    if(start > end){
+    if(start >= end){
         cout << endl;
         printArray(arr, 6);
         return;
