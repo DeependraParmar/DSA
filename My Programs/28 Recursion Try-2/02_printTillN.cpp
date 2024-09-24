@@ -6,13 +6,13 @@ void printTillN(int n){
         return;
     
     printTillN(n-1);
-    cout << n << " ";
+    cout << n << " "; 
 }
 int main(){
     int n;
     cout << "Enter the value of n: ";
     cin >> n;
 
-    printTillN(n);   
+    printTillN(n);
     return 0;
 }
