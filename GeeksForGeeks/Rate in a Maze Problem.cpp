@@ -1,50 +1,48 @@
 /*
-class Solution{
-    public:
-    bool isSafe(int i, int j, int n, vector<vector<int>> &vis, vector<vector<int>> &a) {
-        if(i<0 || j<0 || i==n || j==n || vis[i][j]==1 || a[i][j]==0) return 0;
-        return 1;
-    }
-    void f(int i, int j, vector<vector<int>> &a, int n, string &path, vector<vector<int>> &vis, vector<string> &ans) {
-        if(i==n-1 && j==n-1) {
-            ans.push_back(path);
+class Solution {
+  public:
+    void solve(int i, int j, vector<vector<int>>& arr, int n, vector<string>& ans, string move, vector<vector<int>>& visited){
+        if(i == n-1 && j == n-1){
+            ans.push_back(move);
             return;
         }
-        vis[i][j]=1;
-        //Down
-        if(isSafe(i+1, j, n, vis, a)) {
-            path.push_back('D');
-            f(i+1, j, a, n, path, vis, ans);
-            path.pop_back();
+
+        // DOWN Movement
+        if(i+1 < n && !visited[i+1][j] && arr[i+1][j] == 1){
+            visited[i][j] = 1;
+            solve(i+1, j, arr, n, ans, move+'D', visited);
+            visited[i][j] = 0;
         }
-        //up
-        if(isSafe(i-1, j, n, vis, a)) {
-            path.push_back('U');
-            f(i-1, j, a, n, path, vis, ans);
-            path.pop_back();
+
+        // LEFT Movement
+        if(j-1 >=0 && !visited[i][j-1] && arr[i][j-1] == 1){
+            visited[i][j] = 1;
+            solve(i, j-1, arr, n, ans, move+'L', visited);
+            visited[i][j] = 0;
         }
-        //left
-        if(isSafe(i, j-1, n, vis, a)) {
-            path.push_back('L');
-            f(i, j-1, a, n, path, vis, ans);
-            path.pop_back();
+
+        // RIGHT Movement
+        if(j+1 < n && !visited[i][j+1] && arr[i][j+1] == 1){
+            visited[i][j] = 1;
+            solve(i, j+1, arr, n, ans, move+'R', visited);
+            visited[i][j] = 0;
         }
-        //Down
-        if(isSafe(i, j+1, n, vis, a)) {
-            path.push_back('R');
-            f(i, j+1, a, n, path, vis, ans);
-            path.pop_back();
+
+        // UP Movement
+        if(i-1 >= 0 && !visited[i-1][j] && arr[i-1][j] == 1){
+            visited[i][j] = 1;
+            solve(i-1, j, arr, n, ans, move+'U', visited);
+            visited[i][j] = 0;
         }
-        vis[i][j]=0;
     }
-    vector<string> findPath(vector<vector<int>> &a, int n) {
-        int i=0, j=0;
-        string path="";
+    vector<string> findPath(vector<vector<int>> &mat) {
+        int n = mat.size();
         vector<string> ans;
-        if(a[i][j]==0) return ans;
-        vector<vector<int>> vis(n, vector<int> (n, 0));
-        f(i, j, a, n, path, vis, ans);
-        sort(ans.begin(), ans.end());
+        vector<vector<int>> visited(n, vector<int> (n,0));
+
+        if(mat[0][0] == 1)
+            solve(0, 0, mat, n, ans, "", visited);
+
         return ans;
     }
 };
